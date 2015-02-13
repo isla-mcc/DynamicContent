@@ -6,17 +6,65 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
 </script>  
 <script>
+    
 $(document).ready(
     function(){
-       $("#calc").click(
+        var num1 = 0;
+        var num2 = 0;
+        var total = 0; 
+        
+        var add = function(){
+            num1 = parseInt($("#num1").val());
+            num2 = parseInt($("#num2").val());
+            total = num1 + num2;
+        }
+        
+        var sub = function(){
+            num1 = parseInt($("#num1").val());
+            num2 = parseInt($("#num2").val());
+            total = num1 - num2;
+        }
+        
+        var multiply = function(){
+            num1 = parseInt($("#num1").val());
+            num2 = parseInt($("#num2").val());
+            total = num1 * num2;
+        }
+        
+        var divide = function(){
+            num1 = parseInt($("#num1").val());
+            num2 = parseInt($("#num2").val());
+            total = num1 / num2;
+        }
+       
+       $("#add").click(
             function(){
-                //parseInt makes the set of data into an integer 
-                var num1 = parseInt($("#num1").val());
-                var num2 = parseInt($("#num2").val());
-                var total = num1 + num2;
+                //parseInt makes the set of data into an intager 
+                add();
                 $("#display").html("<h1>"+total+"</h1>");
             }
        ); 
+        
+        $("#mult").click(
+            function(){
+            multiply();
+                $("#display").html("<h1>"+total+"</h1>");
+            }
+       ); 
+        
+        $("#divide").click(
+            function(){
+              divide();
+                $("#display").html("<h1>"+total+"</h1>");
+            }
+       ); 
+        
+        $("#sub").click(
+            function(){ 
+           sub();
+                $("#display").html("<h1>"+total+"</h1>");
+            }
+        );
     }
 );
 </script>
@@ -24,6 +72,9 @@ $(document).ready(
 <body>
 <input id='num1' type='text' placeholder='the 1st #'/>
 <button id='add'>+</button>
+<button id='sub'>-</button>
+<button id='mult'>x</button>
+<button id='divide'>/</button>
 <input id='num2' type='text' placeholder='the 2nd #'/>
 <button id='calc'>Calculate</button>
 <div id="display">
